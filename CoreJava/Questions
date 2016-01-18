@@ -1,0 +1,59 @@
+1. List contains some entyties like 
+Note : Cutomer contains only (cid,cname)
+List<Customer> l = new ArrayList<Customer>();
+l.add(c1);
+l.add(c2);
+l.add(c3);
+In DB contain one Customer(Cid, Cname, Csal like) Table
+how to retrive the records from DB when match the list Objects attributes
+
+2. List contains 1 milion of objects how to search an element is there or not with out using collections
+3. List contains 1 milion of objects how to remove the duplicate objects with out using collections
+4. In DB contain one Customer(Cid, Cname, Addr, updatedtime(something like that)) Table
+          cid     cname     addr     updatedtime
+         -----   -------   ------   -------------------
+          111     ABC       13/52      10:45 12/01/1988
+          111     ABC       13/52      16:45 12/01/1988
+          119     ABD       13/52      15:45 12/01/1988
+          119     ABD       13/52      14:45 12/09/1988
+          116     ABF       13/52      09:45 12/03/1988
+          116     ABF       13/52      16:45 12/04/1988
+          114     ABE       13/52      01:45 12/05/1988
+ write a sql query to retrive latest updatedtime of the employee record
+ 
+ 5. write sql query to retrive the records like the below
+      Did      No: of employee in detpartment
+      ---      ------------------------------
+      145                    5
+      165                    9
+      144                    3
+      
+ 6. at which machanisam follow HashMap internally to store the objects
+ 7. what is hashcode() & contrast between .equals()
+ 8. public static String method(String str) ==> this method is threadsafe or not
+ 9. List<?,?> l = new ArrayList<?,?>(); ==> can you explain this one?()
+ depends on your giving answer he is asking some related questions on generics
+ (like what is bounded object... etc)
+ 10. write a code to given string & integer(both)is in reverse order
+ 11. Try to print number from 1 to 10 using three different threads. Thread 1 should print 1, 4, 7 and thread 2 should print 2, 5, 8 and likewise
+ 12. What items needs to be checked when sql query takes long time to execute,
+ 13. using JSP create three text boxes and one combo box
+     how to display the error messages on the same page on respective boxes
+ 14. Through which object retrive the frontend input data in hibernate and stores into the DB
+ 15. How to insert a list objects in to DB though Hibernate
+ 16. what is threadsafe how to achice that one?
+ 17. how to change a port number in tomcat
+ 18. for existing projects we have to add some pice of code without disturbs the remaining code how to do
+ 19. what is ConcurrentModificationException?
+ 20. what is the difference between iterator and listiterator?
+ 21. how many ways to iterate the list object
+ 22. difference between comparable and coparator
+ 23. for retrive the records on which collection class you will choose
+     for insert the records on which collection class you will choose
+
+ 
+ 
+ 
+ 
+ 
+ 

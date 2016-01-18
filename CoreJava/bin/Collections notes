@@ -1,0 +1,268 @@
+//Collection interface methods(these are most common general methods which are applicable for any collection object)
+boolean add(Object o)
+boolean addAll(Collection c)
+boolean remove(Object o)
+boolean removeAll(Collection c)
+boolean retainAll(Collection c)
+void clear()
+boolean contains(Object o)
+boolean containsAll(Collection c)
+boolean isEmpty()
+int size()
+object[] toArray()
+Iterator iterator()
+
+//List interface
+boolean ada(int index,Object o)
+boolean addAll(int index,Collection c)
+Object get(int index)
+Object remove(int index)
+Object set(int index,Object new)
+int indexOf(Object o)
+int lastIndexOf(Object o)
+ListIterator listIterator()
+
+==================================================================================
+-----------------------------------
+//ArrayList
+-------------------------------
+* The underlying data structure is "Resizable Array" or "Growable Array"
+* Insertion Order is preserved
+* Duplicate elements are allowed
+* Heterogeneous objects are allowed
+* Null insertion is possible
+* implements Serializable , Cloneable and RandomAccess interfaces
+	
+	constructors
+	1) ArrayList l=new ArrayLIst();
+	creates an empty ArrayList object with default initial capacity 10
+	if increases then new capacity is --> (current capacity*3/2+1)
+	2) ArrayList l=new ArrayList(int initialcapacity);
+	3) ArrayList l=new ArrayList(Collection c);
+
+	*ArrayList and Vector classes Implements RandomAccess Interface
+	  so that we can access any random element with the same speed
+
+	  ArrayList                                       Vector
+	  ----------------                             ------------------
+      Non Synchronized								 Synchronized
+
+	  * How to get synchronised version of ArryList?
+	     Collections class contain the following method to get synchronized
+		 version of ArrayList
+		    public static List synchronizedList(List l)
+			ex:
+			ArrayList l=new ArrayList();
+			List l1=Collections.synchronized(l);
+				   ----				     							-----
+			synchronized							non synchronized
+
+	*similarly we ca get synchronized version of set and map objects
+	  by using the following methods
+
+			public static Set synchronized(Set s)
+			public static Map synchronized(Map m)
+	
+	ArrayList usage
+	----------------------------
+	* ArrayList is best choice if our frequent operation is Retrieval operation
+	* ArrayList is worst choice if our frequent operation is insertion or deletion in the middle because
+	   it required several shift operations.
+
+
+
+------------------------------
+//LinkedList
+-----------------------------
+	* The underlying data structure is LinkedList
+	* Insertion Order is preserved
+	* Duplicate elements are allowed
+	* Heterogeneous objects are allowed
+	* Null insertion is possible
+	* implements Serializable , Cloneable but not RandomAccess interface 
+
+	useful
+	------------
+	* useful if our frequent operation is insertion or deletion in the middle.
+	* worst choice if our frequent operation is retrieval 
+
+	LinkedList specific methods
+	-------------------------------------------------
+	void addFirst(Object o)
+	void addLast(Object o)
+	Object getFirst()
+	Object getLast()
+	Object removeFirst()
+	Object removeLast()
+
+	constructors
+	-----------------------
+	LinkedList l=new LinkedList();
+	LinkedList l=new LinkedList(Collection c);
+
+-----------------------
+//Vector
+---------------------------
+* The underlying data structure is "Resizable Array" or "Growable Array"
+* Insertion Order is preserved
+* Duplicate elements are allowed
+* Heterogeneous objects are allowed
+* Null insertion is possible
+* implements Serializable , Cloneable and RandomAccess interfaces
+
+     Vector usage
+	----------------------------
+	* best choice if our frequent operation is Retrieval operation
+	* worst choice if our frequent operation is insertion or deletion in the middle.
+
+	Vector specific methods
+	-------------------------------------------
+	addElement(Object o)
+	removeElement(Object o)
+	removeElementAt(int index)
+	removeAllElements()
+	Object firstElement()
+	Object lastElement()
+	int size()
+	int capacity()
+	Enumeration elements()
+
+	constructors
+	-----------------------
+	Vector v=new Vector(); //initial capacity 10
+	    if reaches its maximum then increases by 2*current capacity
+	Vector v=new Vector(int initialcapacity);
+	Vector v=new Vector(int initialcapacity,int increment capacity);
+	Vector v=new Vector(Collection c);
+
+-----------------------------
+//Stack
+-----------------------------
+	* It is the child class of vector
+	* If we want to represent object according to "last in first out" order then we should go for stack
+	* LIFO is only applicable for removal
+	
+     construcotors
+	 ----------------------
+	  Stack s=new Stack();
+
+	  methods
+	  ----------------
+	  Object push(Object o)
+	  Object pop()
+	  Object peek()
+	  Object empty()
+	  int search(Object o)
+
+-------------------------------------------------------------------------
+//The 3 cursors of java
+-------------------------------------------------------------------------
+		1)Enumeration
+		2)Iterator
+		3)ListIterator
+
+	Enumeration
+	------------------------
+	*methods
+	       public boolean hasMoreElements();
+		   pubic Object nextElement();
+		   
+	* It is not universal cursor and it is useful to extract the data from legacy collection framework variables
+	*By using enumeration we can get only read capability and we cannot perform remove operation
+
+	Iterator
+	------------------------
+	*methods
+	       public boolean hasNext();
+		   public Object next();
+		   public void remove(); 
+		   
+	* It is uni direction cursor.
+	*By using enumeration we can get only read  & remove capability and we cannot perform 
+	  replace operation
+
+	  ListIterator
+	------------------------
+	*methods
+	       public boolean hasNext();
+		   public Object next();
+		   public int nextIndex();
+		   public void remove(); 
+		   public boolean hasPrevious();
+		   public boolean previous();
+		   public int previousIndex();
+		   public void set(Object new)
+		   public void add(object new)
+		   
+	* It is bi direction cursor.
+	*By using enumeration we can get only read  & remove capability and we cannot perform 
+	  replace operation
+
+===============================================================================
+//Set interface
+
+-----------------------------------
+//HashSet
+------------------------------------
+		* The underlying data structure is Hashtable
+		* Insertion order is not preserved. and it is based on "hashcode" of the objects
+		* duplicate objects are not allowed, if we are trying to insert duplicate objects we do not 
+		   get any compiletime error or runtime errors, simply add() returns false
+		* heterogeneous objects are allowed.
+		* null insertion is possible
+		* HashSet implements Serializable and Cloneable interfaces
+		
+
+	usage
+	------------
+	* if our frequent operation is search operaion then HashSet is best choice.
+	
+	constructor
+	---------------------
+	HashSet h=new HashSet(); // initial capacity 16 and default fill ratio(load factor) is0.75
+	HashSet h=new HashSet(int initialcapacity);
+	HashSet h=new HashSet(int initialcapacity,float fillratio);
+	HashSet h=new HashSet(Collection c);
+
+	HashSet                                                   LinkedHashSet     (child class of HashSet)
+	--------------                                            ------------------------------
+	* the underlying datastructure                        *  The underlying datastructure 
+	      is Hashtable                                                      is Hashtable&LinkedList
+	* insertion order is not preserved                    * Insertion order is preserved
+	* introduced in 1.2 version                           * Introduced in 1.4 version
+==========
+//SortedSet
+============
+
+	* special methods
+	--------------------------------
+	Object first()
+	Object last()
+	SortedSet headSet(Object obj)
+	SortedSet tailSet(Object obj)
+	SortedSet subset(Object obj1,Object obj2)
+	Comparator comparator()
+
+--------------------------
+//TreeSet
+--------------------------
+ * Underlying datastructure is "Balanced Tree"
+ * Duplicate elements are not allowed
+ * Insertion order is not preserved and it is based on the some sorting order
+ * null insertion is not possible (only once) (when it is first element)
+ * Heterogeneous elements are not allowed. if enter then it gives ClassCastException.
+
+ constructors:
+ ----------------------
+  TreeSet t=new TreeSet();
+  TreeSet t=new TreeSet(Comparator c);
+  TreeSet t=new TreeSet(SortedSet s);
+  TreeSet t=new TreeSet(Collection c);
+---------------------------
+ // HashMap
+ ----------------------------
+* The underlying datastructure is Hashtable
+* Insertion order is not preserved and it is based on hashcode of the keys
+* duplicate keys are not allowed but the values can be duplicated
+* Heterogeneous objects are allowed for both keys and values
+* Null keys are allowed for key (only once) and for the values (any no of times)
